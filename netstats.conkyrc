@@ -1,0 +1,97 @@
+
+# Conky settings #
+background no
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+#imlib_cache_size 0
+
+temperature_unit celsius
+
+# change GiB to G and MiB to M
+short_units yes
+
+
+# Window specifications #
+own_window_class Conky
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 800 300
+maximum_width 300
+
+alignment tl
+gap_x 30
+gap_y 55
+
+### Graphics settings ###
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+### FONT SETTINGS ###
+use_xft yes
+override_utf8_locale yes
+xftfont Pf Tempesta Five:bold:size=6
+xftalpha 0.8
+uppercase no
+
+temperature_unit celsius
+
+### COLOR VARS ###
+default_color D2D7D3	# Pumice
+color0 C5EFF7 			# Humming Bird
+color1 5F9EA0 			# CadetBlue
+color2 B0C4DE			# LightSteelBlue
+
+
+TEXT
+###################
+### SYSTEM INFO ###
+###################
+${font Hack:size=10}${color0}S Y S T E M    I N F O
+${hr}use_spacer right 
+${font Hack:light:size=8}
+${color0}Host		${alignr}${color1}${nodename}
+${color0}Uptime ${alignr}${color1}${uptime}
+${color0}Machine	${alignr}${color1}${pre_exec cat /etc/issue.net}${color1}${alignr 145}${machine}%
+${color0}Processes	${alignr}${color1}${processes} / ${running_processes}
+${color0}Swap usage	${alignr}${color1}${swapperc}% / ${swap} / ${swapmax}
+${color0}RAM 	${alignr}${color1}${memperc}% / $alignr${mem} / ${memmax}
+${color0}CPU	${alignr}${color1}${cpu}% / ${freq_g}GHz / ${acpitemp}°C
+
+################
+### NET INFO ###
+################
+${font Hack:size=10}${color0}${voffset 55}${goto 1}I N T E R N E T    I N F O
+${hr}
+${font Hack:light:size=8}
+${color0}Down	${alignr}${color1}${totaldown wlan0} ${alignr}${color1}${downspeed wlan0}
+${color0}Up		${alignr}${color1}${totalup wlan0} / ${upspeed wlan0}
+${color0}WiFi 	${alignr}${color1}${wireless_essid wlan0}
+${color0}IP		${alignr}${color1}${addr wlan0}
+
+#######################
+### HARD DRIVE INFO ###
+#######################
+${font Hack:thin:size=10}${color0}${voffset 55}${voffset 2}H A R D    D R I V E
+${hr}
+${font Hack:size=8}
+${color0}Root	${alignr}${color1}${fs_used_perc /}% / ${fs_used /} / ${fs_size /}
+${color0}Home	${alignr}${color1}${fs_used_perc /home}% / ${fs_used /home} / ${fs_size /home}
+${color0}Usb(Size/Used/Avail)	${alignr}${color1}${exec df -h /dev/sdb1 | grep /media/ | awk '{print $2, "/", $3, "/", $4}'}
+

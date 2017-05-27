@@ -1,0 +1,61 @@
+#######################
+### GLOBAL SETTINGS ###
+#######################
+background no
+update_interval 1
+
+override_utf8_locale yes
+
+double_buffer yes
+no_buffers yes
+
+text_buffer_size 2048
+
+#######################
+### WINDOW SETTINGS ###
+#######################
+own_window yes
+own_window_type normal
+own_window_class Conky
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+
+border_inner_margin 0
+border_outer_margin 0
+
+minimum_size 340 100
+maximum_width 400
+
+alignment tc
+gap_x 30
+gap_y 70
+
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+#####################
+### FONT SETTINGS ###
+#####################
+use_xft yes
+override_utf8_locale yes
+xftfont Inconsolata:thin:size=10
+xftalpha 0.8
+uppercase no
+
+##################
+### COLOR VARS ###
+##################
+default_color D2D7D3	# Pumice
+color0 C5EFF7 			# Humming Bird
+color1 5F9EA0 			# CadetBlue
+color2 B0C4DE			# LightSteelBlue
+
+TEXT
+###########
+### RSS ###
+## alternatively use this rss feed: https://www.linux.com/feeds/news/rss 
+${color0}${font Hack:bold:size=10}${color0}planet.debian.org
+${hr}${voffset 10}
+${color1}${font Inconsolata:thin:size=10}${execi 300 ~/.config/conky/scripts/conky-rss.sh http://planet.debian.org/rss20.xml | tail -5 | awk '{print NR-1 ". " $0}'}
