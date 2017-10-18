@@ -23,10 +23,10 @@ own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
 border_inner_margin 0
 border_outer_margin 0
 
-minimum_size 340 100
-maximum_width 450
+minimum_size 400 70
+maximum_width 600
 
-alignment tc
+alignment bottom_right
 gap_x 30
 gap_y 70
 
@@ -56,6 +56,12 @@ TEXT
 ###########
 ### RSS ###
 ## alternatively use this rss feed: https://www.linux.com/feeds/news/rss 
-${color0}${font Hack:size=10}${color0}planet.debian.org
+${color0}${font Hack:size=10}${color0}S T U D Y    S C H E D U L E
 ${hr}${voffset 10}
-${color1}${font Inconsolata:thin:size=10}${execi 300 ~/.config/conky/scripts/conky-rss.sh http://planet.debian.org/rss20.xml | tail -5 | awk '{print NR-1 ". " $0}'}
+${color0}${font Inconsolata:thin:size=10}Monday:      ${color1}Linear Algebra, Probability, Python
+${color0}${font Inconsolata:thin:size=10}Tuesday:     ${color1}Mathematical Logic, Linear Algebra, Python
+${color0}${font Inconsolata:thin:size=10}Wednesday:   ${color1}Probability, Calculus, Python
+${color0}${font Inconsolata:thin:size=10}Thursday:    ${color1}Linear Algebra, Mathematical Logic, Python
+${color0}${font Inconsolata:thin:size=10}Friday:      ${color1}Math Analysis, Calculus, Mathematical Logic, Python
+${color0}${font Inconsolata:thin:size=10}Saturday:    ${color1}Graph Theory, Math Analysis, Neo4J
+${color0}${font Inconsolata:thin:size=10}Sunday:      ${color1}Machine Learning, Probability, Rust
