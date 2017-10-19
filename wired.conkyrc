@@ -1,3 +1,4 @@
+
 #######################
 ### GLOBAL SETTINGS ###
 #######################
@@ -23,12 +24,12 @@ own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
 border_inner_margin 0
 border_outer_margin 0
 
-minimum_size 450 200
+minimum_size 700 400
 maximum_width 450
 
-alignment bottom_right
-gap_x 50
-gap_y 250
+alignment top_center
+gap_x 370
+gap_y 285
 
 draw_shades no
 draw_outline no
@@ -56,7 +57,8 @@ TEXT
 ###########
 ### RSS ###
 ## alternatively use this rss feed: https://www.linux.com/feeds/news/rss 
-${color0}${font Hack:size=10}${color0}H A C K E R   N E W S
+${color0}${font Hack:size=10}${color0}W I R E D
 ${hr}${voffset 10}
-${color1}${font Inconsolata:thin:size=10}${execi 300 ~/.config/conky/scripts/conky-rss.sh https://news.ycombinator.com/rss | tail -10 | awk '{print NR-1 ". " $0}'}
+${color1}${font Inconsolata:thin:size=10}${execi 300 ~/.config/conky/scripts/conky-rss.sh https://www.wired.com/feed/rss
+ | tail -15 | awk '{print NR-1 ". " $0}'}
 
